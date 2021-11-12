@@ -15,10 +15,16 @@ class ContactListItemResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'           => $this->_id,
-            'name'         => $this->name,
-            'email'        => $this->email,
-            'phone_number' => $this->phone_number,
+            'id'            => $this->_id,
+            'name'          => $this->name,
+            'email'         => $this->email,
+            'phone_number'  => $this->phone_number,
+            'zipCode'       => $this->zipCode,
+            'address'       => $this->address,
+            'addressNumber' => $this->address_number,
+            'neighborhood'  => $this->neighborhood,
+            'state'         => $this->state,
+            'city'          => $this->city,
         ];
     }
 }
