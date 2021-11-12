@@ -23,7 +23,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = ContactListItemResource::collection(MongodbContact::all());
+        $contacts = ContactListItemResource::collection(MongodbContact::orderBy('created_at', 'desc')->get());
 
         return response()->json([
             'contacts' => $contacts,
