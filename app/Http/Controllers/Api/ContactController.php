@@ -7,8 +7,10 @@ use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Http\Resources\ContactEditResource;
 use App\Http\Resources\ContactListItemResource;
+use App\Http\Resources\StateListItem;
 use App\Models\Mongodb\Contact as MongodbContact;
 use App\Models\Contact;
+use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -100,5 +102,13 @@ class ContactController extends Controller
             DB::rollBack();
             throw $th;
         }
+    }
+
+    public function getStates()
+    {
+        $states = State::all();
+        return response()->json([
+            'states' => StateListItem::collection($states),
+        ]);
     }
 }
