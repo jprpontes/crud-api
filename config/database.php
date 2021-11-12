@@ -95,8 +95,11 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => env('DB_NON_RELATIONAL_HOST'),
-            'database' => env('DB_NON_RELATIONAL_DATABASE', 'forge'),
+            'host' => env('DB_NON_RELATIONAL_HOST', '127.0.0.1'),
+            'port' => env('DB_NON_RELATIONAL_PORT', 27017),
+            'database' => env('DB_NON_RELATIONAL_DATABASE', 'homestead'),
+            'username' => env('DB_NON_RELATIONAL_USERNAME', 'homestead'),
+            'password' => env('DB_NON_RELATIONAL_PASSWORD', 'secret'),
         ]
 
     ],
